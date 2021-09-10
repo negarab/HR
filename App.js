@@ -1,22 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component} from "react";
+import {Text,View} from "react-native";
+import {Router,Scene} from 'react-native-router-flux';
+ 
+import LoginForm from './LoginForm';
+import LoadingScene from './scenes/LoadingScene';
+import AuthScene from './scenes/AuthScene';
 
 export default function App() {
+  render(); {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>          </Text>
-      <StatusBar style="auto" />
-    </View>
+  <Router>
+  <Scene key="root">
+    <Scene key="loading" Component={LoginForm} initial={true}></Scene>
+    <Scene key="auth" Component={AuthScene}></Scene>
+  </Scene>
+  </Router>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+}
+//export default App;
